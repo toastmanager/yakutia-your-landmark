@@ -12,7 +12,7 @@ const Navbar = () => {
                     <button className='text-winter-cian'>О нас</button>
                     <button className='text-winter-cian'>Контакты</button>
                     <RoundedButtonOutlined text='Авторизация' />
-                    <RoundedButtonFilled text='Начать' postfix={<HiOutlineArrowRight strokeWidth={2.5}/>}/>
+                    <RoundedButtonFilled text='Начать' postfix={<HiOutlineArrowRight />} />
                 </div>
             </div>
         </nav>
