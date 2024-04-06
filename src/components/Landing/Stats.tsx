@@ -7,7 +7,7 @@ const LandingStats = () => {
                 <h1 className="font-bold text-[36px] text-center">Немного статистики о туризме</h1>
                 <p className="text-center">Cъешь ещё этих мягких французских булок, да выпей же чаю</p>
             </div>
-            <div className='grid grid-cols-2 gap-[28px]'>
+            <div className='inline-grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-rows2 gap-[28px]'>
                 <div className="w-[595px] h-[595px] rounded-[15px] bg-winter-cian relative flex justify-center">
                     <div className='absolute bottom-[75px] z-10 text-white'>
                         <h1 className='text-[36px] font-bold'>Людей заинтерисовано</h1>

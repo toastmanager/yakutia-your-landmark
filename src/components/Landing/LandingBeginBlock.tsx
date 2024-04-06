@@ -3,7 +3,7 @@ import RoundedButtonFilled, { RoundedButtonOutlined } from "../RoundedButtons"
 import image1 from '../../assets/image1.png'
 import { Link } from "react-router-dom"
 
-const LandingBlockOne = () => {
+const LandingBeginBlock = () => {
     return (
         <div className='
             w-full
@@ -28,4 +28,4 @@ const LandingBlockOne = () => {
     )
 }
 
-export default LandingBlockOne
+export default LandingBeginBlock
