@@ -1,6 +1,7 @@
 import { HiOutlineArrowRight } from "react-icons/hi2"
 import RoundedButtonFilled, { RoundedButtonOutlined } from "./RoundedButtons"
 import image1 from '../assets/image1.png'
+import { Link } from "react-router-dom"
 
 const LandingBlockOne = () => {
     return (
@@ -15,7 +16,9 @@ const LandingBlockOne = () => {
                     <p className="text-white">Комплексная оценка рекреационного потенциала с помощью геоинформационного моделирования</p>
                 </div>
                 <div className="flex gap-[24px]">
-                    <RoundedButtonFilled text="Начать" postfix={<HiOutlineArrowRight strokeWidth={2.5}/>} bgColor="bg-white" textColor="text-winter-cian"/>
+                    <Link to="/map">
+                        <RoundedButtonFilled text="Начать" postfix={<HiOutlineArrowRight strokeWidth={2.5}/>} bgColor="bg-white" textColor="text-winter-cian"/>
+                    </Link>
                     <RoundedButtonOutlined text="О нас" borderColor="border-white" textColor="text-white"/>
                 </div>
             </div>

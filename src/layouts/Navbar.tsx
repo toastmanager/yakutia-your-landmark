@@ -1,6 +1,7 @@
 import { HiOutlineArrowRight } from 'react-icons/hi'
 import logo from '../assets/logo.svg'
 import RoundedButtonFilled, { RoundedButtonOutlined } from '../components/RoundedButtons'
+import { Link } from 'react-router-dom'
 
 const Navbar = () => {
     return (
@@ -12,7 +13,7 @@ const Navbar = () => {
                     <button className='text-winter-cian'>О нас</button>
                     <button className='text-winter-cian'>Контакты</button>
                     <RoundedButtonOutlined text='Авторизация' />
-                    <RoundedButtonFilled text='Начать' postfix={<HiOutlineArrowRight />} />
+                    <Link to="/map"><RoundedButtonFilled text='Начать' postfix={<HiOutlineArrowRight />} /></Link>
                 </div>
             </div>
         </nav>

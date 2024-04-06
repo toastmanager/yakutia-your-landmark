@@ -1,8 +1,7 @@
 import LandingBlockOne from '../components/LandingBlockOne'
 import Navbar from '../layouts/Navbar'
-import '../styles/App.css'
 
-function App() {
+function LandingPage() {
   return (
     <>
       <Navbar />
@@ -15,4 +14,4 @@ function App() {
   )
 }
 
-export default App
+export default LandingPage

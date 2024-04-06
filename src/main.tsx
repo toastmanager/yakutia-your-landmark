@@ -1,12 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './pages/App.tsx'
 import './index.css'
-import Navbar from './layouts/Navbar.tsx'
-import Test from './pages/Test.tsx'
+import App from './App'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <Test />
+    <App />
   </React.StrictMode>,
 )

@@ -3,12 +3,14 @@ import { useState } from "react"
 import cafes from '../assets/road_cafe.json'
 import attraction from '../assets/attraction.json'
 import "leaflet/dist/leaflet.css";
-import { HiOutlineBuildingOffice2, HiOutlineCalendar, HiOutlineHeart, HiOutlineXMark } from "react-icons/hi2";
-import { LuCalendar, LuCar, LuGoal, LuMedal } from "react-icons/lu";
+import { HiOutlineBuildingOffice2, HiOutlineCalendar, HiOutlineHeart, HiOutlineHome, HiOutlineXMark } from "react-icons/hi2";
+import { LuCar, LuMedal } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
-function Test() {
+function MainMap() {
   const [showCafe, setShowCafe] = useState(false)
-  const [showAttraction, setShowAttraction] = useState(false)
+  const [showAttractions, setShowAttractions] = useState(false)
+
   return (
     <div className='flex h-full w-full'>
       <LeftBar />
@@ -26,7 +28,7 @@ function Test() {
                         </Popup>
                     </Marker>
                 )) : undefined}
-                {showAttraction ? attraction.features.map((feature) => (
+                {showAttractions ? attraction.features.map((feature) => (
                     <Marker position={[feature.geometry.coordinates[1], feature.geometry.coordinates[0]]}>
                         <Popup>
                             <p>{feature.properties.Наименование}</p>
@@ -37,7 +39,15 @@ function Test() {
                 )) : undefined}
             </MapContainer>
         </div>
-      <div className="w-[400px] bg-sky-400 h-screen">
+      <div className="w-[400px] h-screen flex flex-col">
+        <label>
+          <input type="checkbox" checked={showCafe} onChange={() => setShowCafe(!showCafe)}/>
+          Придорожные кафе
+        </label>
+        <label>
+          <input type="checkbox" checked={showAttractions} onChange={() => setShowAttractions(!showAttractions)}/>
+          Достопримечательности
+        </label>
       </div>
     </div>
   )
@@ -45,19 +55,29 @@ function Test() {
 
 const LeftBar = () => {
   return (
-    <div className="w-[400px] h-screen">
-      <input type="text" />
-      <div className="flex flex-col gap-[16px]">
-        <div className="min-h-[1px] bg-winter-cian"></div>
-        <LeftBarItem icon={<LuCar strokeWidth={2.5} size={24}/>} text="Транспортная достпуность" onClick={() => {}}/>
-        <div className="min-h-[1px] bg-winter-cian"></div>
-        <LeftBarItem icon={<HiOutlineHeart strokeWidth={2.5} size={24}/>} text="Туристическая привлекательность" onClick={() => {}}/>
-        <div className="min-h-[1px] bg-winter-cian"></div>
-        <LeftBarItem icon={<HiOutlineCalendar strokeWidth={2.5} size={24}/>} text="Круглогодичность" onClick={() => {}}/>
-        <div className="min-h-[1px] bg-winter-cian"></div>
-        <LeftBarItem icon={<HiOutlineBuildingOffice2 strokeWidth={2.5} size={24}/>} text="Обеспеченность инфраструктуры" onClick={() => {}}/>
-        <div className="min-h-[1px] bg-winter-cian"></div>
-        <LeftBarItem icon={<LuMedal strokeWidth={2.5} size={24}/>} text="Уникальность" onClick={() => {}}/>
+    <div className="w-[400px] h-screen flex flex-col justify-between">
+      <div>
+        <input type="text" />
+        <div className="flex flex-col gap-[16px]">
+          <div className="min-h-[1px] bg-winter-cian"></div>
+          <LeftBarItem icon={<LuCar strokeWidth={2.5} size={24}/>} text="Транспортная достпуность" onClick={() => {}}/>
+          <div className="min-h-[1px] bg-winter-cian"></div>
+          <LeftBarItem icon={<HiOutlineHeart strokeWidth={2.5} size={24}/>} text="Туристическая привлекательность" onClick={() => {}}/>
+          <div className="min-h-[1px] bg-winter-cian"></div>
+          <LeftBarItem icon={<HiOutlineCalendar strokeWidth={2.5} size={24}/>} text="Круглогодичность" onClick={() => {}}/>
+          <div className="min-h-[1px] bg-winter-cian"></div>
+          <LeftBarItem icon={<HiOutlineBuildingOffice2 strokeWidth={2.5} size={24}/>} text="Обеспеченность инфраструктуры" onClick={() => {}}/>
+          <div className="min-h-[1px] bg-winter-cian"></div>
+          <LeftBarItem icon={<LuMedal strokeWidth={2.5} size={24}/>} text="Уникальность" onClick={() => {}}/>
+        </div>
+      </div>
+      <div>
+          <div className="min-h-[1px] bg-winter-cian"></div>
+          <div className="flex items-center px-[22px] h-[34px]">
+            <Link to="/">
+              <HiOutlineHome className="w-[24px] text-[16px] text-winter-cian" size={24}/>
+            </Link>
+          </div>
       </div>
     </div>
   )
@@ -73,4 +93,4 @@ const LeftBarItem = (props: {icon: any, text: string, onClick: any}) => {
   )
 }
 
-export default Test
+export default MainMap
