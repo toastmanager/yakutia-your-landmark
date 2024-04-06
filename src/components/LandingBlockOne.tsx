@@ -15,7 +15,7 @@ const LandingBlockOne = () => {
                     <p className="text-white">Комплексная оценка рекреационного потенциала с помощью геоинформационного моделирования</p>
                 </div>
                 <div className="flex gap-[24px]">
-                    <RoundedButtonFilled text="Начать" postfix={<HiOutlineArrowRight strokeWidth={2.5}/>} bgColor="white" textColor="winter-cian"/>
+                    <RoundedButtonFilled text="Начать" postfix={<HiOutlineArrowRight strokeWidth={2.5}/>} bgColor="bg-white" textColor="text-winter-cian"/>
                     <RoundedButtonOutlined text="О нас" borderColor="border-white" textColor="text-white"/>
                 </div>
             </div>

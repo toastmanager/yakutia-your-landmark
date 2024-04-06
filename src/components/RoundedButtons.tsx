@@ -1,10 +1,9 @@
-const RoundedButtonFilled = (props: {prefix?:any, text: string, postfix?: any, bgColor?: string, textColor?: string, borderColor?: string, onClick?: Function}) => {
-    const bg = props.bgColor !== undefined ? `bg-${props.bgColor}` : "bg-winter-cian"
-    const text = props.textColor !== undefined ? `text-${props.textColor}` : "text-white"
-    const border = props.borderColor !== undefined ? `border-${props.borderColor}` :  `border-${bg.substring(3)}`
+const RoundedButtonFilled = (props: {prefix?:any, text: string, postfix?: any, bgColor?: string, textColor?: string, onClick?: Function}) => {
+    const bg = props.bgColor !== undefined ? props.bgColor : "bg-winter-cian"
+    const text = props.textColor !== undefined ? props.textColor : "text-white"
     const onClick = props.onClick !== undefined ? props.onClick : () => {}
     return (
-        <button onClick={() => onClick()} className={`${bg} ${text} rounded-full flex gap-[8px] font-bold px-[24px] py-[18px] items-center border-[1px] hover:${border} hover:bg-inherit hover:text-${bg.substring(3)}`}>
+        <button onClick={() => onClick()} className={`${bg} ${text} rounded-full flex gap-[8px] font-bold px-[24px] py-[18px] items-center border-[1px]`}>
             {props.prefix}
             {props.text}
             {props.postfix}
