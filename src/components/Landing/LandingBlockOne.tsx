@@ -1,6 +1,6 @@
 import { HiOutlineArrowRight } from "react-icons/hi2"
-import RoundedButtonFilled, { RoundedButtonOutlined } from "./RoundedButtons"
-import image1 from '../assets/image1.png'
+import RoundedButtonFilled, { RoundedButtonOutlined } from "../RoundedButtons"
+import image1 from '../../assets/image1.png'
 import { Link } from "react-router-dom"
 
 const LandingBlockOne = () => {
@@ -22,7 +22,7 @@ const LandingBlockOne = () => {
                     <RoundedButtonOutlined text="О нас" borderColor="border-white" textColor="text-white"/>
                 </div>
             </div>
-            <div className="bg-gradient-to-r from-winter-cian opacity-50 absolute w-full h-full rounded-[15px] z-0"></div>
+            <div className="bg-gradient-to-r from-winter-cian via-transparent opacity-70 absolute w-full h-full rounded-[15px] z-0"></div>
             <img src={image1} alt="" className="w-full h-full oject-cover rounded-[15px] z-0" />
         </div>
     )
