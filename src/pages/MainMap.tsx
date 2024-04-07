@@ -1,4 +1,4 @@
-import { MapContainer, Marker, Popup, TileLayer, useMapEvent } from "react-leaflet"
+import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet"
 import { DivIcon } from "leaflet"
 import { useState } from "react"
 import { HiOutlineBuildingOffice2, HiOutlineCalendar, HiOutlineHeart, HiOutlineHome } from "react-icons/hi2";
