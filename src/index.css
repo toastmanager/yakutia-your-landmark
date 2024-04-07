@@ -3,6 +3,19 @@
 @tailwind utilities;
 
 .leaflet-container {
-  height: 500px;
+  height: 100%;
   width: 100%;
+}
+
+#root {
+  max-width: none;
+  min-height: 1vh;
+  margin: 0;
+  padding: 0;
+  font-size: 18px;
+  font-family: Open Sans, ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";;
+}
+
+button {
+  font-size: 18px;
 }
