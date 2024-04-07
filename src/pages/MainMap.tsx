@@ -2,18 +2,17 @@ import { MapContainer, Marker, Popup, TileLayer, useMapEvent } from "react-leafl
 import { DivIcon } from "leaflet"
 import { useState } from "react"
 import { HiOutlineBuildingOffice2, HiOutlineCalendar, HiOutlineHeart, HiOutlineHome } from "react-icons/hi2";
+import { renderToStaticMarkup } from "react-dom/server";
+import { MapDescAttraction, MapDescInfrastructure, MapDescUniqueness, MapDescVehicle, MapDescYearAvailability } from "../configs/MapFiltersInfo";
 import { LuCar, LuMedal } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import cafe from '../assets/cafe.svg'
+import cafes from '../assets/road_cafe.json'
 import hotel from '../assets/hotel.svg'
 import hotels from '../assets/hotels.json'
 import attraction from '../assets/attraction.svg'
-import cafes from '../assets/road_cafe.json'
 import attractions from '../assets/attraction.json'
 import "leaflet/dist/leaflet.css";
-import { renderToStaticMarkup } from "react-dom/server";
-import { MapDescAttraction, MapDescInfrastructure, MapDescUniqueness, MapDescVehicle, MapDescYearAvailability } from "../configs/MapFiltersInfo";
-
 
 
 function MainMap() {
@@ -21,7 +20,8 @@ function MainMap() {
   const [showAttractions, setShowAttractions] = useState(false)
   const [showHotels, setShowHotels] = useState(false)
   const [leftIndex, setLeftIndex] = useState(0)
-  
+  let everything = { ...attractions, ...cafes}
+
   const cafeIcon = new DivIcon({html: renderToStaticMarkup(<img src={cafe} />), className: "bottom-0", iconAnchor: [25, 65]})
   const hotelIcon = new DivIcon({html: renderToStaticMarkup(<img src={hotel} />), className: "bottom-0", iconAnchor: [25, 65]})
   const attractionIcon = new DivIcon({html: renderToStaticMarkup(<img src={attraction}/>), className: "bottom-0", iconAnchor: [25, 65]})
@@ -42,12 +42,12 @@ function MainMap() {
         <div className="min-h-[1px] bg-winter-cian"></div>
         <label className="flex gap-[12px] px-[18px]">
           <input type="checkbox" checked={showHotels} onChange={() => setShowHotels(!showHotels)}/>
-          Гостиницы
+          Турбазы
         </label>
       </div>
     )
   }
-  
+
   function SetMarkOnClick() {
     useMapEvent('click', (e) => {
       console.log(e.latlng)
@@ -90,12 +90,11 @@ function MainMap() {
     <div className='flex h-full w-full'>
       <LeftBar />
       <div className="flex flex-col gap-10 w-full h-screen">
-            <MapContainer attributionControl={false} center={[63.035668, 129.71956]} zoom={5} scrollWheelZoom={true} >
+            <MapContainer attributionControl={false} center={[63.035668, 129.71956]} zoom={5} scrollWheelZoom={true}>
                 <TileLayer
                     attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
                     url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
                 />
-                <SetMarkOnClick />
                 {showCafe ? cafes.features.map((feature) => (
                     <Marker position={[feature.attributes.Широта, feature.attributes.Долгота]} icon={cafeIcon}>
                         <Popup>
