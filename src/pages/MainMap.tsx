@@ -20,7 +20,6 @@ function MainMap() {
   const [showAttractions, setShowAttractions] = useState(false)
   const [showHotels, setShowHotels] = useState(false)
   const [leftIndex, setLeftIndex] = useState(0)
-  let everything = { ...attractions, ...cafes}
 
   const cafeIcon = new DivIcon({html: renderToStaticMarkup(<img src={cafe} />), className: "bottom-0", iconAnchor: [25, 65]})
   const hotelIcon = new DivIcon({html: renderToStaticMarkup(<img src={hotel} />), className: "bottom-0", iconAnchor: [25, 65]})
@@ -46,13 +45,6 @@ function MainMap() {
         </label>
       </div>
     )
-  }
-
-  function SetMarkOnClick() {
-    useMapEvent('click', (e) => {
-      console.log(e.latlng)
-    })
-    return undefined
   }
   
   const LeftBar = () => {
